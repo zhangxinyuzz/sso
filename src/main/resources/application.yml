@@ -1,0 +1,40 @@
+server:
+  port: 8088
+  max-http-header-size: 10240
+
+spring:
+  profiles:
+    active: dev
+data:
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092  # kafka????
+    producer: # ?????
+      retries: 3 # ????0????????????????????
+      batch-size: 16384 #16K
+      buffer-memory: 33554432 #32M
+      acks: 1
+      # ????key??????????
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: personnel # ????
+      enable-auto-commit: false # ??????
+      auto-offset-reset: earliest # ??????????offset??????offset?????????offset????????
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 1
+
+    listener:
+      ack-mode: manual_immediate
+
+redisson:
+  address: redis://127.0.0.1:6379
+  timeout: 3000
+  database: 0
+  connectionPoolSize: 4
+  connectionMinimumIdleSize: 4
+# 开启sys_config配置的Redis缓存
+redis:
+  config:
+    cache:
+      enable: true

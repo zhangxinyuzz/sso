@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "server",
+      "type": "java.lang.String",
+      "description": "Description for server."
+    },
+    {
+      "name": "data.mongodb.username",
+      "type": "java.lang.String",
+      "description": "Description for data.mongodb.username."
+    },
+    {
+      "name": "data.kafka.listener.ack-mode",
+      "type": "java.lang.String",
+      "description": "Description for data.kafka.listener.ack-mode."
+    },
+    {
+      "name": "redisson.address",
+      "type": "java.lang.String",
+      "description": "Description for redisson.address."
+    }
+  ] }
